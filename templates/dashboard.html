@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .navbar {
+            background-color: #001f3f; /* Navy blue */
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #001f3f;  /* Navy blue background */
+            color: white;               /* White text */
+            border: none;               /* Remove default border */
+            padding: 5px 20px;         /* Add some padding */
+            border-radius: 60px;        /* Fully rounded corners */
+            font-size: 16px;            /* Font size */
+            cursor: pointer;            /* Show pointer on hover */
+        }
+        button:hover {
+            background-color: #09ae38;  /* Change background on hover */
+        }
+        input {
+            border: 1px solid #ced4da;  /* Light gray border */
+            border-radius: 25px;        /* Fully rounded corners */
+            padding: 10px 15px;         /* Add padding for better spacing */
+            font-size: 16px;            /* Font size */
+            width: 100%;                /* Full width */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Optional shadow for depth */
+            transition: border-color 0.3s; /* Smooth transition for border color */
+        }
+        input:focus {
+            border-color: #0056b3;      /* Change border color on focus */
+            outline: none;               /* Remove default outline */
+        }
+        .icon {
+            width: 30px; /* Set icon size */
+            margin-right: 10px; /* Space between icon and text */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <img src="https://cdn-icons-png.flaticon.com/512/10751/10751558.png" alt="Icon" class="icon">
+            <a class="navbar-brand" href="#">TerraChain</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">  <!-- Align items to the right -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/history">View Block History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="content">
+        <h3 class="text-center mb-4">Welcome to the Dashboard, {{ username }}</h3>
+        <p class="text-center">You can manage blocks, add new blocks, and view block history here.</p>
+
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert alert-dismissible fade show mt-3" role="alert">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="text-center mt-4">
+            <form action="/add_block" method="POST">
+                <input type="text" name="data" placeholder="Block Data" required>
+                <button type="submit">Add Block</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (for responsive navbar) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

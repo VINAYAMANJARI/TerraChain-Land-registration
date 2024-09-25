@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block History</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .navbar {
+            background-color: #001f3f; /* Navy blue */
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .content {
+            max-width: 1800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .table {
+            margin-top: 20px;
+            margin-left: 0px;
+            font-size: 15px;
+        }
+        .icon {
+            width: 30px; /* Set icon size */
+            margin-right: 10px; /* Space between icon and text */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <img src="https://cdn-icons-png.flaticon.com/512/10751/10751558.png" alt="Icon" class="icon">
+            <a class="navbar-brand" href="#">TerraChain</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">  <!-- Align items to the right -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Back to Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Block History Content -->
+    <div class="content">
+        <h3 class="text-center mb-4">Block History </h3>
+
+        <!-- Table for showing block history -->
+        <table class="table table-bordered">
+            <tr>
+                <th>Index</th>
+                <th>Timestamp</th>
+                <th>Data</th>
+                <th>Hash</th>
+                <th>Previous Hash</th>
+            </tr>
+            {% for block in blocks %}
+            <tr>
+                <td>{{ block['index'] }}</td>
+                <td>{{ block['timestamp'] }}</td>
+                <td>{{ block['data'] }}</td>
+                <td>{{ block['hash'] }}</td>
+                <td>{{ block['previous_hash'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Bootstrap JS (for responsive navbar) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+

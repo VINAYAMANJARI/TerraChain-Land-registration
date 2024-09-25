@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .navbar {
+            background-color: #001f3f; /* Navy blue */
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .icon {
+            width: 30px; /* Set icon size */
+            margin-right: 10px; /* Space between icon and text */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <img src="https://cdn-icons-png.flaticon.com/512/10751/10751558.png" alt="Icon" class="icon"> <!-- Placeholder for the icon -->
+            <a class="navbar-brand" href="#">TerraChain</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">  <!-- Align items to the right -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Content -->
+    <div class="content">
+        <h3 class="text-center mb-4">Welcome to Our Website</h3>
+        <p class="text-center">At Land Registration, we leverage blockchain technology to provide secure, transparent, and efficient land registration services.</p>
+
+        <h5>Our Mission</h5>
+        <p>We aim to revolutionize the land registration process by eliminating fraud, enhancing transparency, and ensuring that land ownership records are easily accessible and immutable. Our platform allows users to register, transfer, and manage land ownership seamlessly.</p>
+
+        <h5>Why Trust Us?</h5>
+        <p>Our blockchain-based solution ensures that every transaction is recorded securely and cannot be altered. This gives our users peace of mind knowing that their land ownership is protected. Our dedicated team of experts continuously works to enhance our services and provide the best user experience.</p>
+
+        <h5>Join Us</h5>
+        <p>We invite you to join our community and experience a new era of land registration. Your trust is our priority, and we are committed to maintaining the highest standards of security and service.</p>
+    </div>
+
+    <!-- Bootstrap JS (for responsive navbar) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
