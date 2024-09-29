@@ -95,6 +95,11 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
+# about page
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 # Main Function
 if __name__ == '__main__':
     with app.app_context():  # Use app context to initialize the database
